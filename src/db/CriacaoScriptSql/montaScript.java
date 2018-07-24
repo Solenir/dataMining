@@ -66,7 +66,7 @@ public class montaScript {
     public static void main(String[] args) {
         ArrayList<String> atributos = new ArrayList<>();
         atributos =  ler(new File("C:\\Users\\solenir\\Desktop\\8ºSemestre\\EXA864 MINERAÇÃO DE DADOS\\ProjetoPratico2\\Codes\\dataMining\\src\\db\\CriacaoScriptSql\\binario.txt"));
-        escrever(new File("C:\\Users\\solenir\\Desktop\\8ºSemestre\\EXA864 MINERAÇÃO DE DADOS\\ProjetoPratico2\\Codes\\dataMining\\src\\db\\CriacaoScriptSql\\binarioSQL.txt"),atributos," BIT ");
+        escrever(new File("C:\\Users\\solenir\\Desktop\\8ºSemestre\\EXA864 MINERAÇÃO DE DADOS\\ProjetoPratico2\\Codes\\dataMining\\src\\db\\CriacaoScriptSql\\binarioSQL.txt"),atributos," TINYINT");
 
         //atributos =  ler(new File("C:\\Users\\solenir\\Desktop\\8ºSemestre\\EXA864 MINERAÇÃO DE DADOS\\ProjetoPratico2\\Codes\\dataMining\\src\\db\\CriacaoScriptSql\\continuo.txt"));
         //escrever(new File("C:\\Users\\solenir\\Desktop\\8ºSemestre\\EXA864 MINERAÇÃO DE DADOS\\ProjetoPratico2\\Codes\\dataMining\\src\\db\\CriacaoScriptSql\\continuoSQL.txt"),atributos," FLOAT ");

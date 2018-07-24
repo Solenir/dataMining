@@ -1,7 +1,7 @@
 -- *****************************************************
 -- CRIACAO DO BANCO DE DADOS
 -- *****************************************************
-CREATE DATABASE BD_HomeService
+CREATE DATABASE BD_Jogadores
 DEFAULT CHARACTER SET utf8
 DEFAULT COLLATE utf8_general_ci;
 
@@ -9,276 +9,214 @@ DEFAULT COLLATE utf8_general_ci;
 -- CRIACAO DAS TABELAS
 -- *****************************************************
 
-USE BD_HomeService;
+USE BD_Jogadores;
 
 -- *****************************************************
 -- Tabela..........: USUARIO
 -- Elemento do DER.: Entidade Usuario
 -- *****************************************************
-CREATE TABLE IF NOT EXISTS USUARIO(
-  ID_Usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(50) NOT NULL,
-  DataDeNascimento Date,
-  Telefone VARCHAR(15),
-  Email VARCHAR(35) UNIQUE KEY,
-  Login VARCHAR(30) NOT NULL UNIQUE KEY,
-  Senha VARCHAR(62) NOT NULL,
-  FotoDoPerfil VARCHAR(200)
+CREATE TABLE IF NOT EXISTS JOGADOR(
+  ID INT NOT NULL,
+  Name_Jogador VARCHAR(50) NOT NULL,
+  League VARCHAR(50) NOT NULL,
+  Club VARCHAR(50) NOT NULL,
+  Nationality VARCHAR(30) NOT NULL,
+  Convocado BIT NOT NULL,
+  Eur_value INT NOT NULL,
+  Eur_wage INT NOT NULL,
+  Eur_release_clause INT NOT NULL
 )ENGINE = INNODB;
 
 -- *****************************************************
 -- Tabela..........: RECLAMACAO
 -- Elemento do DER.: Entidade Reclamacao
 -- *****************************************************
-CREATE TABLE IF NOT EXISTS RECLAMACAO (
-  ID_Rec INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(50) NOT NULL,
-  Email VARCHAR(30) NOT NULL,
-  Assunto VARCHAR(30) NOT NULL,
-  Mensagem TEXT NOT NULL
-
+CREATE TABLE IF NOT EXISTS JOGADOR_BINARIO(
+	ID INT NOT NULL,
+	normal BIT  NOT NULL,
+	lean BIT  NOT NULL,
+	stocky BIT  NOT NULL,
+	high_work_rate_att BIT  NOT NULL,
+	low_work_rate_att BIT  NOT NULL,
+	medium_work_rate_att BIT  NOT NULL,
+	high_work_rate_def BIT  NOT NULL,
+	low_work_rate_def BIT  NOT NULL,
+	medium_work_rate_def BIT  NOT NULL,
+	right_preferred_foot BIT  NOT NULL,
+	left_preferred_foot BIT  NOT NULL,
+	_1_on_1_rush_trait BIT  NOT NULL,
+	acrobatic_clearance_trait BIT  NOT NULL,
+	argues_with_officials_trait BIT  NOT NULL,
+	avoids_using_weaker_foot_trait BIT  NOT NULL,
+	backs_into_player_trait BIT  NOT NULL,
+	bicycle_kicks_trait BIT  NOT NULL,
+	cautious_with_crosses_trait BIT  NOT NULL,
+	chip_shot_trait BIT  NOT NULL,
+	chipped_penalty_trait BIT  NOT NULL,
+	comes_for_crosses_trait BIT  NOT NULL,
+	corner_specialist_trait BIT  NOT NULL,
+	diver_trait BIT  NOT NULL,
+	dives_into_tackles_trait BIT  NOT NULL,
+	diving_header_trait BIT  NOT NULL,
+	driven_pass_trait BIT  NOT NULL,
+	early_crosser_trait BIT  NOT NULL,
+	fans_favourite_trait BIT  NOT NULL,
+	fancy_flicks_trait BIT  NOT NULL,
+	finesse_shot_trait BIT  NOT NULL,
+	flair_trait BIT  NOT NULL,
+	flair_passes_trait BIT  NOT NULL,
+	gk_flat_kick_trait BIT  NOT NULL,
+	gk_long_throw_trait BIT  NOT NULL,
+	gk_up_for_corners_trait BIT  NOT NULL,
+	giant_throw_in_trait BIT  NOT NULL,
+	inflexible_trait BIT  NOT NULL,
+	injury_free_trait BIT  NOT NULL,
+	injury_prone_trait BIT  NOT NULL,
+	leadership_trait BIT  NOT NULL,
+	long_passer_trait BIT  NOT NULL,
+	long_shot_taker_trait BIT  NOT NULL,
+	long_throw_in_trait BIT  NOT NULL,
+	one_club_player_trait BIT  NOT NULL,
+	outside_foot_shot_trait BIT  NOT NULL,
+	playmaker_trait BIT  NOT NULL,
+	power_free_kick_trait BIT  NOT NULL,
+	power_header_trait BIT  NOT NULL,
+	puncher_trait BIT  NOT NULL,
+	rushes_out_of_goal_trait BIT  NOT NULL,
+	saves_with_feet_trait BIT  NOT NULL,
+	second_wind_trait BIT  NOT NULL,
+	selfish_trait BIT  NOT NULL,
+	skilled_dribbling_trait BIT  NOT NULL,
+	stutter_penalty_trait BIT  NOT NULL,
+	swerve_pass_trait BIT  NOT NULL,
+	takes_finesse_free_kicks_trait BIT  NOT NULL,
+	target_forward_trait BIT  NOT NULL,
+	team_player_trait BIT  NOT NULL,
+	technical_dribbler_trait BIT  NOT NULL,
+	tries_to_beat_defensive_line_trait BIT  NOT NULL,
+	poacher_speciality BIT  NOT NULL,
+	speedster_speciality BIT  NOT NULL,
+	aerial_threat_speciality BIT  NOT NULL,
+	dribbler_speciality BIT  NOT NULL,
+	playmaker_speciality BIT  NOT NULL,
+	engine_speciality BIT  NOT NULL,
+	distance_shooter_speciality BIT  NOT NULL,
+	crosser_speciality BIT  NOT NULL,
+	free_kick_specialist_speciality BIT  NOT NULL,
+	tackling_speciality BIT  NOT NULL,
+	tactician_speciality BIT  NOT NULL,
+	acrobat_speciality BIT  NOT NULL,
+	strength_speciality BIT  NOT NULL,
+	clinical_finisher_speciality BIT  NOT NULL,
+	prefers_rs BIT  NOT NULL,
+	prefers_rw BIT  NOT NULL,
+	prefers_rf BIT  NOT NULL,
+	prefers_ram BIT  NOT NULL,
+	prefers_rcm BIT  NOT NULL,
+	prefers_rm BIT  NOT NULL,
+	prefers_rdm BIT  NOT NULL,
+	prefers_rcb BIT  NOT NULL,
+	prefers_rb BIT  NOT NULL,
+	prefers_rwb BIT  NOT NULL,
+	prefers_st BIT  NOT NULL,
+	prefers_lw BIT  NOT NULL,
+	prefers_cf BIT  NOT NULL,
+	prefers_cam BIT  NOT NULL,
+	prefers_cm BIT  NOT NULL,
+	prefers_lm BIT  NOT NULL,
+	prefers_cdm BIT  NOT NULL,
+	prefers_cb BIT  NOT NULL,
+	prefers_lb BIT  NOT NULL,
+	prefers_lwb BIT  NOT NULL,
+	prefers_ls BIT  NOT NULL,
+	prefers_lf BIT  NOT NULL,
+	prefers_lam BIT  NOT NULL,
+	prefers_lcm BIT  NOT NULL,
+	prefers_ldm BIT  NOT NULL,
+	prefers_lcb BIT  NOT NULL,
+	prefers_gk BIT NOT NULL
 )ENGINE = INNODB;
 
--- *****************************************************
--- Tabela..........: MAISSERVICO
--- Elemento do DER.: Entidade MaisServico
--- *****************************************************
-CREATE TABLE IF NOT EXISTS MAISSERVICO (
-  ID_MaisServico INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Valor FLOAT NOT NULL,
-  Nova_Categoria VARCHAR(30) NOT NULL,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
+
+CREATE TABLE IF NOT EXISTS JOGADOR_CONTINUO(
+	ID INT NOT NULL,
+	special FLOAT  NOT NULL,
+	age FLOAT  NOT NULL,
+	height_cm FLOAT  NOT NULL,
+	weight_kg FLOAT  NOT NULL,
+	eur_value FLOAT  NOT NULL,
+	eur_wage FLOAT  NOT NULL,
+	eur_release_clause FLOAT  NOT NULL,
+	overall FLOAT  NOT NULL,
+	potential FLOAT  NOT NULL,
+	pac FLOAT  NOT NULL,
+	sho FLOAT  NOT NULL,
+	pas FLOAT  NOT NULL,
+	dri FLOAT  NOT NULL,
+	def FLOAT  NOT NULL,
+	phy FLOAT  NOT NULL,
+	international_reputation FLOAT  NOT NULL,
+	skill_moves FLOAT  NOT NULL,
+	weak_foot FLOAT  NOT NULL,
+	crossing FLOAT  NOT NULL,
+	finishing FLOAT  NOT NULL,
+	heading_accuracy FLOAT  NOT NULL,
+	short_passing FLOAT  NOT NULL,
+	volleys FLOAT  NOT NULL,
+	dribbling FLOAT  NOT NULL,
+	curve FLOAT  NOT NULL,
+	free_kick_accuracy FLOAT  NOT NULL,
+	long_passing FLOAT  NOT NULL,
+	ball_control FLOAT  NOT NULL,
+	acceleration FLOAT  NOT NULL,
+	sprint_speed FLOAT  NOT NULL,
+	agility FLOAT  NOT NULL,
+	reactions FLOAT  NOT NULL,
+	balance FLOAT  NOT NULL,
+	shot_power FLOAT  NOT NULL,
+	jumping FLOAT  NOT NULL,
+	stamina FLOAT  NOT NULL,
+	strength FLOAT  NOT NULL,
+	long_shots FLOAT  NOT NULL,
+	aggression FLOAT  NOT NULL,
+	interceptions FLOAT  NOT NULL,
+	positioning FLOAT  NOT NULL,
+	vision FLOAT  NOT NULL,
+	penalties FLOAT  NOT NULL,
+	composure FLOAT  NOT NULL,
+	marking FLOAT  NOT NULL,
+	standing_tackle FLOAT  NOT NULL,
+	sliding_tackle FLOAT  NOT NULL,
+	gk_diving FLOAT  NOT NULL,
+	gk_handling FLOAT  NOT NULL,
+	gk_kicking FLOAT  NOT NULL,
+	gk_positioning FLOAT  NOT NULL,
+	gk_reflexes FLOAT  NOT NULL,
+	rs FLOAT  NOT NULL,
+	rw FLOAT  NOT NULL,
+	rf FLOAT  NOT NULL,
+	ram FLOAT  NOT NULL,
+	rcm FLOAT  NOT NULL,
+	rm FLOAT  NOT NULL,
+	rdm FLOAT  NOT NULL,
+	rcb FLOAT  NOT NULL,
+	rb FLOAT  NOT NULL,
+	rwb FLOAT  NOT NULL,
+	st FLOAT  NOT NULL,
+	lw FLOAT  NOT NULL,
+	cf FLOAT  NOT NULL,
+	cam FLOAT  NOT NULL,
+	cm FLOAT  NOT NULL,
+	lm FLOAT  NOT NULL,
+	cdm FLOAT  NOT NULL,
+	cb FLOAT  NOT NULL,
+	lb FLOAT  NOT NULL,
+	lwb FLOAT  NOT NULL,
+	ls FLOAT  NOT NULL,
+	lf FLOAT  NOT NULL,
+	lam FLOAT  NOT NULL,
+	lcm FLOAT  NOT NULL,
+	ldm FLOAT  NOT NULL,
+	lcb FLOAT  NOT NULL,
+	gk FLOAT NOT NULL
 )ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: MAISVISIBILIDADE
--- Elemento do DER.: Entidade MaisVisibilidade
--- *****************************************************
-CREATE TABLE IF NOT EXISTS MAISVISIBILIDADE (
-  ID_MaisVisibilidade INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Valor FLOAT NOT NULL,
-  Nova_Categoria VARCHAR(30) NOT NULL,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: LOCALIZACAO
--- Elemento do DER.: Entidade Localizacao
--- *****************************************************
-CREATE TABLE IF NOT EXISTS LOCALIZACAO (
-  ID_Localizacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Pais VARCHAR(30) NOT NULL DEFAULT 'Brasil',
-  Estado VARCHAR(30) NOT NULL,
-  CEP VARCHAR(10) NOT NULL,
-  Cidade VARCHAR(30) NOT NULL,
-  Rua VARCHAR(30) NOT NULL,
-  Numero INT NOT NULL,
-  Latitude FLOAT NOT NULL,
-  Longitude FLOAT NOT NULL,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: COMPROMISSO
--- Elemento do DER.: Entidade Compromisso
--- *****************************************************
-CREATE TABLE IF NOT EXISTS COMPROMISSO (
-  ID_Compromisso INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  DataComp DATE NOT NULL,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: SERVICO
--- Elemento do DER.: Entidade Servico
--- *****************************************************
-CREATE TABLE IF NOT EXISTS SERVICO (
-  ID_Servico INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  StatusDeContratacao BOOLEAN NOT NULL DEFAULT FALSE,
-  Prioridade INT NOT NULL DEFAULT 0,
-  Categoria VARCHAR(50) NOT NULL,
-  Descricao TEXT,
-  Latitude FLOAT NOT NULL,
-  Longitude FLOAT NOT NULL,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: CONTRACACAO
--- Elemento do DER.: Entidade Contratacao
--- *****************************************************
-CREATE TABLE IF NOT EXISTS CONTRATACAO (
-  ID_Contratacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Data DATE NOT NULL,
-  idContratante INT NOT NULL,
-  idServico INT NOT NULL,
-  FOREIGN KEY (idContratante) REFERENCES USUARIO(ID_Usuario),
-  FOREIGN KEY (idServico) REFERENCES SERVICO(ID_Servico)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: NOTIFICACAOCONTRACACAO
--- Elemento do DER.: Entidade Mensagem
--- *****************************************************
-CREATE TABLE IF NOT EXISTS NOTIFICACAOCONTRACACAO (
-  ID_NotificacaoContratacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idContratacao int NOT NULL,
-  Status BOOLEAN,
-  FOREIGN KEY (idContratacao) REFERENCES CONTRATACAO(ID_Contratacao)
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: CONTRACACAOPENDENTE
--- Elemento do DER.: Entidade ContratacaoPendente
--- *****************************************************
-CREATE TABLE IF NOT EXISTS CONTRATACAOPENDENTE (
-  ID_ContratacaoPendente INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Data DATE NOT NULL,
-  idContratante INT NOT NULL,
-  idPrestador INT NOT NULL,
-  idServico INT NOT NULL,
-  FOREIGN KEY (idContratante) REFERENCES USUARIO(ID_Usuario),
-  FOREIGN KEY (idPrestador) REFERENCES USUARIO(ID_Usuario),
-  FOREIGN KEY (idServico) REFERENCES SERVICO(ID_Servico)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: REQUISICAOSERVICO
--- Elemento do DER.: Entidade RequisicaoServico
--- *****************************************************
-CREATE TABLE IF NOT EXISTS REQUISICAOSERVICO (
-  ID_Requisicao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Titulo VARCHAR(30) NOT NULL,
-  LocalServ VARCHAR(30) NOT NULL,
-  Descricao TEXT,
-  idUsuario INT NOT NULL,
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: GALERIA
--- Elemento do DER.: Entidade Galeria
--- *****************************************************
-CREATE TABLE IF NOT EXISTS GALERIA (
-  idUsuario INT NOT NULL,
-  URL_Imagem VARCHAR(200),
-  FOREIGN KEY (idUsuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: ADMINISTRADOR
--- Elemento do DER.: Entidade Administrador
--- *****************************************************
-CREATE TABLE IF NOT EXISTS ADMINISTRADOR (
-  ID_Adm INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Nome VARCHAR(50) NOT NULL UNIQUE KEY,
-  Login VARCHAR(30) NOT NULL UNIQUE KEY,
-  Senha VARCHAR(30) NOT NULL,
-  Email VARCHAR(35) NOT NULL UNIQUE KEY
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: ACAO
--- Elemento do DER.: Entidade Acao
--- *****************************************************
-CREATE TABLE IF NOT EXISTS ACAO (
-  ID_Acao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  DataAcao date NOT NULL,
-  Dado VARCHAR(30) NOT NULL,
-  Descricao TEXT,
-  idAdm INT NOT NULL,
-  FOREIGN KEY (idAdm) REFERENCES ADMINISTRADOR(ID_Adm)
-)ENGINE = INNODB;
-
--- *****************************************************
--- Tabela..........: QUALIFICACAOCON
--- Elemento do DER.: Entidade QualificacaoContratante
--- *****************************************************
-CREATE TABLE IF NOT EXISTS QUALIFICACAOCON (
-  ID_QualificacaoCon INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  notaDeAvaliacao INT NOT NULL,
-  comentario TEXT,
-  idContratante INT NOT NULL,
-  idPrestador INT NOT NULL,
-  FOREIGN KEY (idContratante) REFERENCES USUARIO(ID_Usuario),
-  FOREIGN KEY (idPrestador) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: QUALIFICACAOSERV
--- Elemento do DER.: Entidade QualificacaoServico
--- *****************************************************
-CREATE TABLE IF NOT EXISTS QUALIFICACAOSERV (
-  ID_QualificacaoServ INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  notaDeAvaliacao INT NOT NULL,
-  comentario TEXT,
-  idServico INT NOT NULL,
-  idContratante INT NOT NULL,
-  FOREIGN KEY (idServico) REFERENCES SERVICO(ID_Servico),
-  FOREIGN KEY (idContratante) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: MENSAGEM
--- Elemento do DER.: Entidade Mensagem
--- *****************************************************
-CREATE TABLE IF NOT EXISTS MENSAGEM (
-  ID_Mensagem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idRemetente INT NOT NULL,
-  idDestinatario INT NOT NULL,
-  Texto TEXT,
-  HoraMensagem DATETIME,
-  FOREIGN KEY (idRemetente) REFERENCES USUARIO(ID_Usuario),
-  FOREIGN KEY (idDestinatario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: NOTIFICACAOMENSAGEM
--- Elemento do DER.: Entidade Mensagem
--- *****************************************************
-CREATE TABLE IF NOT EXISTS NOTIFICACAOMENSAGEM (
-  ID_NotificacaoMensagem INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idMensagem int NOT NULL,
-  Status BOOLEAN,
-  FOREIGN KEY (idMensagem) REFERENCES MENSAGEM(ID_Mensagem)
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: BOLETIM
--- Elemento do DER.: Entidade BoletimInformativo
--- *****************************************************
-CREATE TABLE IF NOT EXISTS BOLETIM (
-  ID_Boletim INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Email VARCHAR(35) NOT NULL UNIQUE KEY
-)ENGINE = InnoDB;
-
--- *****************************************************
--- Tabela..........: FAVORITOS
--- Elemento do DER.: Entidade FAVORITOS
--- *****************************************************
-CREATE TABLE IF NOT EXISTS FAVORITOS (
-  ID_Favorito INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  idServico INT NOT NULL,
-  idContratante INT NOT NULL,
-  FOREIGN KEY (idServico) REFERENCES SERVICO(ID_Servico),
-  FOREIGN KEY (idContratante) REFERENCES USUARIO (ID_Usuario)
-)ENGINE = InnoDB;
--- *****************************************************
--- Tabela..........: DENUNCIASERV
--- Elemento do DER.: Entidade DenunciaServico
--- *****************************************************
-CREATE TABLE IF NOT EXISTS DENUNCIASERV (
-  ID_DenunciaServ INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  motivo VARCHAR(30) NOT NULL,
-  Descricao TEXT NOT NULL,
-  ID_Servico INT NOT NULL,
-  ID_Usuario INT NOT NULL,
-  FOREIGN KEY (ID_Servico) REFERENCES SERVICO(ID_Servico),
-  FOREIGN KEY (ID_Usuario) REFERENCES USUARIO(ID_Usuario)
-)ENGINE = InnoDB;
-
